@@ -28,7 +28,7 @@ MongoClient.connect("mongodb://localhost:27017/exampleDb", function(err, db) {
 			if(!entry.options.dir){
 				var grid = new Grid(db, 'fs');
 				var contentType = mime.lookup(name);
-				console.log("Mime %s", contentType);
+				console.log("Binary = %s, Mime Type %s", entry.options.binary, contentType);
 				var buffer = (entry.options.binary)? entry.asNodeBuffer(): new Buffer(entry._data);
 				grid.put(buffer, 
 					{_id: {bundle: "cn-fe-ads", ver: "1.0.0", path: name},
