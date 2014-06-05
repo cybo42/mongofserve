@@ -57,6 +57,4 @@ MongoClient.connect("mongodb://localhost:27017/exampleDb", function(err, db) {
 
 	});
 
-		// db.close();
-
 });
