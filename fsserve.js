@@ -29,7 +29,7 @@ MongoClient.connect("mongodb://localhost:27017/exampleDb", function(err, db){
     console.log("loading resource %j", id);
     collection.findOne({_id: id}, function(err, fileInfo){
       if(err){
-        throw err;
+        return res.send(err, 500);
       }
 
       if(!fileInfo){
@@ -38,7 +38,7 @@ MongoClient.connect("mongodb://localhost:27017/exampleDb", function(err, db){
 
       grid.get(fileInfo._id, function(err, data) {
         if(err){
-          throw err;
+          return res.send(err, 500);
         }
 
         console.log("Content-type = " + fileInfo.contentType);
